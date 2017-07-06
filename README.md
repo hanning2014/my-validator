@@ -2,6 +2,7 @@
 Angular2&amp;4 Validator
 
 ## First 
+```
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -25,10 +26,13 @@ import {AppComponent} from './app.component';
 })
 export class AppModule {
 }
+```
 
 ## then
 
-### Idcard
+#### Idcard
+```
 <input id="idcard" type="text" class="form-control"
        name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
 <p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
+```
