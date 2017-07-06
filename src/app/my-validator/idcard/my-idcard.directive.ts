@@ -1,5 +1,6 @@
 import {Directive, forwardRef} from '@angular/core';
 import {AbstractControl, NG_VALIDATORS, Validator, Validators} from "@angular/forms";
+import {isPresent} from "../util";
 
 const DIGITS_VALIDATOR: any = {
     provide: NG_VALIDATORS,
@@ -59,7 +60,7 @@ export class MyIdcardDirective implements Validator {
     }
 
     private validator(control: AbstractControl): { [key: string]: boolean } {
-        if (this.isPresent(Validators.required(control))) {
+        if (isPresent(Validators.required(control))) {
             return null;
         }
 
@@ -91,10 +92,6 @@ export class MyIdcardDirective implements Validator {
     //打印失败原因
     private printError(e: string) {
         console.error(`身份证<${e}>校验失败`);
-    }
-
-    private isPresent(obj) {
-        return obj !== undefined && obj !== null;
     }
 
     //检查号码是否符合规范，包括长度，类型

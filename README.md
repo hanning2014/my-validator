@@ -1,6 +1,8 @@
 # my-validator
 Angular2&amp;4 Validator
 
+适用于: 中国(Scope: china)
+
 ## First 
 ```
 import {BrowserModule} from '@angular/platform-browser';
