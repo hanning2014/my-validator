@@ -1,16 +1,19 @@
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
+        var c = arguments.length,
+            r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+        if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+        else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+        return c > 3 && r && Object.defineProperty(target, key, r), r;
+    };
 exports.__esModule = true;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var DIGITS_VALIDATOR = {
     provide: forms_1.NG_VALIDATORS,
-    useExisting: core_1.forwardRef(function () { return MyIdcardDirective; }),
+    useExisting: core_1.forwardRef(function () {
+        return MyIdcardDirective;
+    }),
     multi: true
 };
 var vcity = {
@@ -56,6 +59,7 @@ var MyIdcardDirective = (function () {
      */
     function MyIdcardDirective() {
     }
+
     MyIdcardDirective.prototype.validate = function (c) {
         return this.validator(c);
     };
@@ -64,7 +68,7 @@ var MyIdcardDirective = (function () {
             return null;
         }
         var v = control.value;
-        var fail = { idcard: true };
+        var fail = {idcard: true};
         //校验长度，类型
         if (!this.isCardNo(v)) {
             this.printError('长度，类型');

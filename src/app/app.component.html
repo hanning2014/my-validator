@@ -1,24 +1,24 @@
 <div class="container-fluid">
-  <div class="card">
-    <div class="card-header">
-      Angular4 Validator
-    </div>
-    <div class="card-block">
-      <form #myForm="ngForm">
-        <div class="form-group row">
-          <label for="idcard" class="col-md-1 col-form-label">Idcard:</label>
-          <div class="col-md-11">
-            <input id="idcard" type="text" class="form-control"
-                   name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
-            <p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
-          </div>
+    <div class="card">
+        <div class="card-header">
+            Angular4 Validator
         </div>
-      </form>
+        <div class="card-block">
+            <form #myForm="ngForm">
+                <div class="form-group row">
+                    <label for="idcard" class="col-md-1 col-form-label">Idcard:</label>
+                    <div class="col-md-11">
+                        <input id="idcard" type="text" class="form-control"
+                               name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
+                        <p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-right">
+            <button class="btn btn-danger">Cancel</button>
+            <button class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+        </div>
     </div>
-    <div class="card-footer text-right">
-      <button class="btn btn-danger">Cancel</button>
-      <button class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
-    </div>
-  </div>
 </div>
 

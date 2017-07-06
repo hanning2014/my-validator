@@ -54,11 +54,11 @@ const vcity = {
  * 校验身份证格式
  */
 export class MyIdcardDirective implements Validator {
-    validate(c: AbstractControl): {[key: string]: any} {
+    validate(c: AbstractControl): { [key: string]: any } {
         return this.validator(c);
     }
 
-    private validator(control: AbstractControl): {[key: string]: boolean} {
+    private validator(control: AbstractControl): { [key: string]: boolean } {
         if (this.isPresent(Validators.required(control))) {
             return null;
         }
