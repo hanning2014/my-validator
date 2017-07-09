@@ -38,7 +38,7 @@ export class AppModule {
 ```
 <input id="idcard" type="text" class="form-control"
        name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
-<p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
+<p *ngIf="idcard.errors?.idcard">icard format error</p>
 ```
 
 #### Reactive-driven Forms
@@ -71,6 +71,5 @@ export class AppComponent implements OnInit{
 in your html
 ```
 <input id="idcard2" type="text" class="form-control" formControlName="idcard2">
-<p *ngIf="form.get('idcard2').errors && form.get('idcard2').errors['idcard']
-&& !form.get('idcard2').pristine">icard format error</p>
+<p *ngIf="form.get('idcard2').errors?.idcard">icard format error</p>
 ```
