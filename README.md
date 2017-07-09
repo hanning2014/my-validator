@@ -44,10 +44,6 @@ export class AppModule {
 #### Reactive-driven Forms
 in your typescript
 ```
-<input id="idcard" type="text" class="form-control"
-       name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
-<p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
-```
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {MyValidator} from "./my-validator/my-validator.module";
