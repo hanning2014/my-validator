@@ -1,39 +1,83 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            Angular4 Validator
+    <h3>Angular4 Validator</h3>
+    <div class="row clearfix">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    Template-driven Forms
+                </div>
+                <div class="card-block">
+                    <form #myForm="ngForm">
+                        <div class="form-group row">
+                            <label for="idcard" class="col-md-1 col-form-label">Idcard:</label>
+                            <div class="col-md-11">
+                                <input id="idcard" type="text" class="form-control"
+                                       name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
+                                <p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-1 col-form-label">Phone:</label>
+                            <div class="col-md-11">
+                                <input id="phone" type="text" class="form-control"
+                                       name="phone" [(ngModel)]="obj.phone" #phone="ngModel" my-phone required>
+                                <p *ngIf="phone.errors && phone.errors.phone && !phone.pristine">phone format error</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="tel" class="col-md-1 col-form-label">Tel:</label>
+                            <div class="col-md-11">
+                                <input id="tel" type="text" class="form-control"
+                                       name="tel" [(ngModel)]="obj.tel" #tel="ngModel" my-tel required>
+                                <p *ngIf="tel.errors && tel.errors.tel && !tel.pristine">tel format error</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-right">
+                    <button class="btn btn-danger">Cancel</button>
+                    <button class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+                </div>
+            </div>
         </div>
-        <div class="card-block">
-            <form #myForm="ngForm">
-                <div class="form-group row">
-                    <label for="idcard" class="col-md-1 col-form-label">Idcard:</label>
-                    <div class="col-md-11">
-                        <input id="idcard" type="text" class="form-control"
-                               name="idcard" [(ngModel)]="obj.idcard" #idcard="ngModel" my-idcard required>
-                        <p *ngIf="idcard.errors && idcard.errors.idcard && !idcard.pristine">icard format error</p>
-                    </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    Reactive-driven Forms
                 </div>
-                <div class="form-group row">
-                    <label for="phone" class="col-md-1 col-form-label">Phone:</label>
-                    <div class="col-md-11">
-                        <input id="phone" type="text" class="form-control"
-                               name="phone" [(ngModel)]="obj.phone" #phone="ngModel" my-phone required>
-                        <p *ngIf="phone.errors && phone.errors.phone && !phone.pristine">phone format error</p>
-                    </div>
+                <div class="card-block">
+                    <form [formGroup]="form">
+                        <div class="form-group row">
+                            <label for="idcard2" class="col-md-1 col-form-label">Idcard:</label>
+                            <div class="col-md-11">
+                                <input id="idcard2" type="text" class="form-control" formControlName="idcard2">
+                                <p *ngIf="form.get('idcard2').errors && form.get('idcard2').errors['idcard']
+                                && !form.get('idcard2').pristine">icard format error</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="phone2" class="col-md-1 col-form-label">Phone:</label>
+                            <div class="col-md-11">
+                                <input id="phone2" type="text" class="form-control" formControlName="phone2">
+                                <p *ngIf="form.get('phone2').errors && form.get('phone2').errors['phone']
+                                && !form.get('phone2').pristine">phone format error</p>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="tel2" class="col-md-1 col-form-label">Tel:</label>
+                            <div class="col-md-11">
+                                <input id="tel2" type="text" class="form-control" formControlName="tel2">
+                                <p *ngIf="form.get('tel2').errors && form.get('tel2').errors['tel']
+                                && !form.get('tel2').pristine">tel format error</p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-                <div class="form-group row">
-                    <label for="tel" class="col-md-1 col-form-label">Tel:</label>
-                    <div class="col-md-11">
-                        <input id="tel" type="text" class="form-control"
-                               name="tel" [(ngModel)]="obj.tel" #tel="ngModel" my-tel required>
-                        <p *ngIf="tel.errors && tel.errors.tel && !tel.pristine">tel format error</p>
-                    </div>
+                <div class="card-footer text-right">
+                    <button class="btn btn-danger">Cancel</button>
+                    <button class="btn btn-success" [disabled]="!form.valid">Submit</button>
                 </div>
-            </form>
-        </div>
-        <div class="card-footer text-right">
-            <button class="btn btn-danger">Cancel</button>
-            <button class="btn btn-success" [disabled]="!myForm.form.valid">Submit</button>
+            </div>
         </div>
     </div>
 </div>

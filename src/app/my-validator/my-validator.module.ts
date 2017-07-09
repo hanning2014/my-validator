@@ -1,23 +1,23 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {MyIdcardDirective} from "./idcard/my-idcard.directive";
-import {MyPhoneDirective} from "./phone/my-phone.directive";
-import {MyTelDirective} from "./tel/my-tel.directive";
+import {MyIdcardDirective, myIdCard} from "./idcard";
+import {MyPhoneDirective, myPhone} from "./phone";
+import {MyTelDirective, myTel} from "./tel";
+
+export const MyValidator: any = {
+    myIdCard,
+    myPhone,
+    myTel
+};
+
+const MY_VALIDATOR_DIRECTIVES = [
+    MyIdcardDirective,
+    MyPhoneDirective,
+    MyTelDirective
+];
 
 @NgModule({
-    imports: [
-        CommonModule
-    ],
-    declarations: [
-        MyIdcardDirective,
-        MyPhoneDirective,
-        MyTelDirective
-    ],
-    exports: [
-        MyIdcardDirective,
-        MyPhoneDirective,
-        MyTelDirective
-    ]
+    declarations: [MY_VALIDATOR_DIRECTIVES],
+    exports: [MY_VALIDATOR_DIRECTIVES]
 })
 export class MyValidatorModule {
 }
